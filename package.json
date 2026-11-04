@@ -1,0 +1,13 @@
+{
+  "name": "practical-agent-engineering-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CloudNala Insights public-safe lab: workflow vs bounded agent step, session-aware model routing and agent-loop controls. Synthetic data, simulated models, no dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/run-all.mjs"
+  }
+}

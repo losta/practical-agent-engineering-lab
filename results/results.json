@@ -1,0 +1,80 @@
+{
+  "generated": "deterministic; same output on every run",
+  "workflow": {
+    "invoices": 61,
+    "postedStraightThrough": 49,
+    "postedAfterBoundedStep": 7,
+    "boundedStepInvocations": 10,
+    "boundedStepInvalidOutputs": 1,
+    "toOfficer": 5,
+    "maxToolCallsUsed": 3
+  },
+  "routing": [
+    {
+      "policy": "always-large",
+      "sessionPassRate": 0.975,
+      "turns": 885,
+      "shareOfTurnsOnSmall": 0,
+      "totalCost": 2213.7840000000247,
+      "costPerAcceptedSession": 11.352738461538587,
+      "cacheHitRate": 0.7740112994350282,
+      "gateOverrides": 0,
+      "escalationsToOfficial": 107
+    },
+    {
+      "policy": "always-small",
+      "sessionPassRate": 0.475,
+      "turns": 826,
+      "shareOfTurnsOnSmall": 0.8038740920096852,
+      "totalCost": 793.6887999999982,
+      "costPerAcceptedSession": 8.354618947368403,
+      "cacheHitRate": 0.5508474576271186,
+      "gateOverrides": 162,
+      "escalationsToOfficial": 81
+    },
+    {
+      "policy": "latest-message",
+      "sessionPassRate": 0.59,
+      "turns": 830,
+      "shareOfTurnsOnSmall": 0.5987951807228916,
+      "totalCost": 1312.3120000000044,
+      "costPerAcceptedSession": 11.121288135593257,
+      "cacheHitRate": 0.43493975903614457,
+      "gateOverrides": 0,
+      "escalationsToOfficial": 90
+    },
+    {
+      "policy": "session-aware",
+      "sessionPassRate": 0.965,
+      "turns": 907,
+      "shareOfTurnsOnSmall": 0.17199558985667035,
+      "totalCost": 2064.559200000024,
+      "costPerAcceptedSession": 10.697197927461263,
+      "cacheHitRate": 0.6670341786108048,
+      "gateOverrides": 0,
+      "escalationsToOfficial": 109
+    }
+  ],
+  "harness": {
+    "scenarios": {
+      "happy path, first run": "awaiting_approval",
+      "happy path, after approval": "completed",
+      "approver declines": "escalated_to_person",
+      "crew system down, agent retries": "repeated_failure",
+      "agent asks to approve procurement": "policy_denied",
+      "agent never finishes": "budget_exhausted",
+      "operator cancels": "cancelled"
+    },
+    "residentDataInTrace": false,
+    "resumedTraceEvents": 14,
+    "stopReasons": [
+      "completed",
+      "awaiting_approval",
+      "cancelled",
+      "budget_exhausted",
+      "repeated_failure",
+      "policy_denied",
+      "escalated_to_person"
+    ]
+  }
+}
